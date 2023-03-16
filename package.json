@@ -17,7 +17,17 @@
         "command": "explaincode.explainCode",
         "title": "Explain Selected Code"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Explain Code",
+      "properties": {
+        "explainCode.openaiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your OpenAI API Key"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

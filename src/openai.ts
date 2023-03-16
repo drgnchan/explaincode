@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import axios from "axios";
+import * as vscode from "vscode";
 
-const API_KEY = "";
+const API_KEY = vscode.workspace.getConfiguration("explainCode").get<string>("openaiApiKey") || "";
 const baseURL = "https://api.openai.com/v1/completions";
 
 const instance = axios.create({
