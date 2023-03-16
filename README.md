@@ -2,6 +2,8 @@
 
 Explain Code by chatgpt
 
+![usecase](./static/explaincode.gif)
+
 # API Key Setup
 
 1. press `cmd+shift+p`
