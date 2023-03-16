@@ -2,7 +2,17 @@
 
 Explain Code by chatgpt
 
-# Use
+# API Key Setup
+
+1. press `cmd+shift+p`
+2. search `Preferences: Open Settings (UI)`
+3. press `Enter`
+4. search property: `Openai Api Key`
+5. insert your own api key
+
+![settings](./static/settings_ui.png)
+
+# Usage
 
 1. select codes which you want chatgpt to explain
 2. press `cmd+shift+p`
