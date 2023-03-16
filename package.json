@@ -15,7 +15,7 @@
     "commands": [
       {
         "command": "explaincode.explainCode",
-        "title": "Hello World"
+        "title": "Explain Selected Code"
       }
     ]
   },

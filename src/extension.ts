@@ -17,21 +17,27 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
 
-        const prompt = `解释下面这段${editor.document.languageId}代码，将你的解释作为注释插入到源代码中后输出包含注释的源代码。\n\n${selectedCode}`;
-        const explanation = await getOpenAIDescription(prompt);
+        await vscode.window.withProgress({
+            location: vscode.ProgressLocation.Notification,
+            title: "Generating code explanation...",
+        }, async () => {
+            const prompt = `解释下面这段${editor.document.languageId}代码，将你的解释转化为注释插入到源代码后输出包含注释的源代码：${selectedCode}`;
+            const explanation = await getOpenAIDescription(prompt);
 
-        if (!explanation) {
-            vscode.window.showErrorMessage("Could not generate an explanation.");
-            return;
-        }
+            if (!explanation) {
+                vscode.window.showErrorMessage("Could not generate an explanation.");
+                return;
+            }
 
-        editor.edit((editBuilder) => {
-            editBuilder.replace(selection, explanation);
+            editor.edit((editBuilder) => {
+                editBuilder.replace(selection, explanation);
+            });
         });
+
     });
 
     context.subscriptions.push(disposable);
 }
 
 
-export function deactivate() {}
+export function deactivate() { }
